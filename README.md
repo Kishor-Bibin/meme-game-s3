@@ -42,7 +42,8 @@ If the cards match, they will disappear from the board.
 If the cards don’t match, they will flip back, and you can try again.
 Keep going until all cards are matched!
 ## Screenshot📸
-screenshot
+![https://github.com/Kishor-Bibin/meme-game-s3/tree/main/screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+
 
 
 ## Continuous Deployment Workflow ⚙️
