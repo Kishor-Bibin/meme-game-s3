@@ -7,12 +7,12 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* Ensure the body takes the full viewport height */
+    min-height: 100vh;
 }
 
 .container {
-    width: 90%; /* Make the container width relative */
-    max-width: 1200px; /* Prevent it from becoming too wide on large screens */
+    width: 90%;
+    max-width: 1200px;
     margin: 40px auto;
     padding: 30px;
     background-color: #3c404d;
@@ -32,36 +32,29 @@ h1 {
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust based on screen size */
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Adjust the number of columns based on screen size */
     gap: 20px;
-    justify-content: center;
     padding: 20px;
 }
 
 .card {
-    width: 100%; /* Make it responsive */
-    padding-bottom: 75%; /* Maintain aspect ratio */
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; /* Keeps a square aspect ratio */
     background-color: #565c6f;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     overflow: hidden;
-    position: relative;
 }
 
 .card img {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    visibility: hidden; /* Hide images by default */
-}
-
-.card.show img {
-    visibility: visible; /* Show image when card is flipped */
 }
 
 #start-game {
@@ -80,17 +73,12 @@ h1 {
     transform: scale(1.05);
 }
 
-/* Media Queries for smaller screens */
+/* Smaller screens adjustments */
 @media (max-width: 600px) {
     .instructions {
-        font-size: 1rem; /* Reduce font size on smaller screens */
+        font-size: 1rem;
     }
-    
     #game-board {
         gap: 10px;
-    }
-
-    .card {
-        padding-bottom: 100%; /* Maintain aspect ratio */
     }
 }
