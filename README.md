@@ -1,1 +1,1 @@
-# meme-game-s3
+# Continuous Deployment using AWS Code Pipeline and S3
