@@ -1,43 +1,46 @@
 body {
-    font-family: 'Roboto', sans-serif; 
-    background-color: #282c34; 
-    color: #ffffff; 
+    font-family: 'Roboto', sans-serif;
+    background-color: #282c34;
+    color: #ffffff;
     text-align: center;
     margin: 0;
     padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensure the body takes the full viewport height */
 }
 
 .container {
-    width: auto;
+    width: 90%; /* Make the container width relative */
+    max-width: 1200px; /* Prevent it from becoming too wide on large screens */
     margin: 40px auto;
     padding: 30px;
-    background-color: #3c404d; 
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25); 
-    border-radius: 15px; 
+    background-color: #3c404d;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
 }
 
 h1 {
-    color: white; 
+    color: white;
 }
 
 .instructions {
-    font-size: 20px;
+    font-size: 1.25rem;
     margin-bottom: 30px;
     color: #adbac7;
 }
 
 #game-board {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); /* Adjust based on screen size */
     gap: 20px;
     justify-content: center;
     padding: 20px;
 }
 
 .card {
-    width: 211.8px;
-    height: 166.2px;
+    width: 100%; /* Make it responsive */
+    padding-bottom: 75%; /* Maintain aspect ratio */
     background-color: #565c6f;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -46,13 +49,15 @@ h1 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    position: relative;
 }
 
 .card img {
+    position: absolute;
     width: 100%;
-    height: auto;
+    height: 100%;
+    object-fit: cover;
     visibility: hidden; /* Hide images by default */
-    display: block;
 }
 
 .card.show img {
@@ -71,6 +76,21 @@ h1 {
 }
 
 #start-game:hover {
-    background-color: #43a047; /* Darker on hover */
-    transform: scale(1.05); /* Slightly enlarges on hover */
+    background-color: #43a047;
+    transform: scale(1.05);
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 600px) {
+    .instructions {
+        font-size: 1rem; /* Reduce font size on smaller screens */
+    }
+    
+    #game-board {
+        gap: 10px;
+    }
+
+    .card {
+        padding-bottom: 100%; /* Maintain aspect ratio */
+    }
 }
